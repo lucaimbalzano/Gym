@@ -1,0 +1,43 @@
+﻿@model LoginModel
+@using Gym.Web.Models.Account
+
+@{
+    ViewBag.Title = "Login";
+    var summary = Html.ValidationSummary(true);
+}
+
+    <div class="login-page form-page">
+
+        @using (Html.BeginForm("Login", "Account", new { returnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { id = "login-form", @class = "login-form-container form-container" }))
+        {
+            <h3 class="title">Login</h3>
+            if (summary != null)
+            {
+                @summary
+            }
+            <p>Login in my Application.</p>
+
+            <div class="form-row">
+                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email" })
+                @Html.ValidationMessageFor(m => m.Email)
+            </div>
+
+            <div class="form-row">
+                @Html.PasswordFor(m => m.Password, new { placeholder = "Password" })
+                @Html.ValidationMessageFor(m => m.Password)
+            </div>
+
+
+
+            <div class="form-row">
+                <button type="submit">
+                    Login
+                </button>
+            </div>
+
+            <div class="form-row">
+                <p class="text-center">Oppure @Html.ActionLink("Registrati","Register","Account")</p>
+            </div>
+        }
+    </div>
+

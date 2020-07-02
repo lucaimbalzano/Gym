@@ -1,0 +1,102 @@
+﻿@model Gym.Web.Models.Admin.RenewCustomerSubscriptionModel
+@{
+    ViewBag.Title = "Rinnova Abbonamento";
+    var summary = Html.ValidationSummary(true);
+}
+
+<h2>Rinnova abbonamento di @Model.CustomerName</h2>
+
+@using (Html.BeginForm("RenewSubscription", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    if(summary != null)
+    {
+        <div class="form-group">
+            <div class="col-sm-12">
+                <div class="alert alert-warning">
+                    @summary
+                </div>
+            </div>
+        </div>
+    }
+    @Html.HiddenFor(c => c.CustomerId)
+    @Html.HiddenFor(x => x.CustomerName)
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Subscription)
+        </div>
+        <div class="col-sm-8">
+            @Html.DropDownListFor(m => m.Subscription, Model.AvailableSubscriptions, new { @class = "form-control", onchange = "SubscriptionChange()"})
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Start)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.Start, "{0:yyyy-MM-dd}", new { type = "date", @class = "form-control", onchange = "SubscriptionChange();" })
+            @Html.ValidationMessageFor(model => model.Start)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.End)
+        </div>
+        <div class="col-sm-8">
+            <span id="end-date" class="form-control">
+                @Model.End.ToString("d")
+            </span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Price)
+        </div>
+        <div class="col-sm-8">
+            <span id="price" class="form-control">
+                @Model.Price.ToString("C2")
+            </span>
+        </div>
+    </div>
+    <hr />
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+          
+        </div>
+        <div class="col-sm-8">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-check"></i>
+                OK
+            </button>
+        </div>
+    </div>
+}
+
+<script>
+    function SubscriptionChange() {
+        var subscription = $('#Subscription').val();
+        var startDate = $('#Start').val();
+
+        $.ajax({
+            type: 'GET',
+            url: '@Url.Action("GetSubscriptionInfo")',
+            dataType: 'json',
+            data: {
+                startDate: startDate,
+                subscription: subscription,
+                customerId: '@Model.CustomerId'
+            },
+            success: function (data) {
+                if (data.Success) {
+                    $('#price').html(data.Price);
+                    $('#end-date').html(data.EndDate);
+                } else {
+                    alert(data.Message);
+                }
+            }
+        });
+        
+    }
+</script>

@@ -1,0 +1,106 @@
+﻿@model Gym.Web.Models.Admin.CustomersListModel
+@{
+    ViewBag.Title = "Lista clienti";
+}
+
+<h2>Clienti</h2>
+@if(Model.Customers.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    Nome
+                </th>
+                <th>
+                    <link href="~/Content/Site.css" rel="stylesheet" />
+                    Email
+                </th>
+                <th>
+                    Tessera
+                </th>
+                <th>
+                    Sesso
+                </th>
+                <th>
+                    Data reg.
+                </th>
+                <th>
+                    Abbonamento
+                </th>
+                <th>
+                    Certificato
+                </th>
+                <th>
+                    Under 20
+                </th>
+                <th>
+                    Indirizzo
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var customer in Model.Customers)
+            {
+                <tr>
+                    <td>
+                        @customer.Name
+                    </td>
+                    <td>
+                        @customer.Email
+                    </td>
+                    <td>
+                        @customer.Code
+                    </td>
+                    <td>
+                        <i class="fas fa-@(customer.Gender == Gym.Web.Models.Admin.Gender.MALE  ? "male" : "female")"></i>
+                    </td>
+                    <td>
+                        @customer.Registration.ToString("d")
+                    </td>
+                    <td>
+                        @if (customer.Subscription.HasValue)
+                        {
+                            <i class="fas fa-check text-green"></i>
+                            <span>( @customer.Subscription.Value.ToString("d") )</span>
+                        }
+                        else
+                        {
+                            <i class="fas fa-times text-red"></i>
+                            <a class="btn btn-success" href="@Url.Action("RenewSubscription", new { id = customer.Id })">
+                                <i class="fas fa-redo-alt"></i>
+                                Rinnova
+                            </a>
+                        }
+                    </td>
+                    <td>
+                        @if (customer.MedCert.HasValue)
+                        {
+                            <i class="fas fa-check text-green"></i>
+                            <span>( @customer.MedCert.Value.ToString("d") )</span>
+                        } else
+                        {
+                            <i class="fas fa-times text-red"></i>
+                        }
+                    </td>
+                    <td>
+                        <i class="fas fa-@(customer.IsUnder20 ? "check": "times") text-@(customer.IsUnder20 ? "green" : "red")"></i>
+                    </td>
+                    <td>
+                        <a href="#" onclick="ShowAddress(event,'@customer.Address')">
+                            <i class="far fa-address-card"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+<script>
+    function ShowAddress(event, address) {
+        event.preventDefault();
+        alert(address);
+    }
+</script>

@@ -1,0 +1,130 @@
+﻿@model Gym.Web.Models.Admin.CreateCustomerModel
+@{
+    ViewBag.Title = "Crea nuovo cliente";
+}
+
+<h2>Inserisci cliente</h2>
+
+@using (Html.BeginForm("CreateCustomer", "Admin", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Name)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name)
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.LastName)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.LastName)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Email)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Email)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Phone)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Phone)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.BirthDate)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.BirthDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.BirthDate)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Gender)
+        </div>
+        <div class="col-sm-8">
+            <div class="form-control" style="border:none;box-shadow:none;">
+                @Html.RadioButtonFor(m => m.Gender, "M") M
+                @Html.RadioButtonFor(m => m.Gender, "F") F
+            </div>
+
+            @Html.ValidationMessageFor(m => m.Gender)
+        </div>
+    </div>
+
+    @Html.Partial("Address", Model.Address)
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Code)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.Code, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Code)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.Notes)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextAreaFor(m => m.Notes, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Notes)
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 control-label">
+            @Html.LabelFor(m => m.MedCertDate)
+        </div>
+        <div class="col-sm-8">
+            @Html.TextBoxFor(m => m.MedCertDate, new { @class = "form-control", type = "date" })
+            @Html.ValidationMessageFor(m => m.MedCertDate)
+        </div>
+    </div>
+
+    <hr />
+    <div class="form-group">
+        <div class="col-sm-4">
+
+        </div>
+        <div class="col-sm-8">
+            <button type="submit" class="btn btn-success">
+                <i class="fas fa-plus"></i>
+                Crea
+            </button>
+            <button type="button" class="btn btn-warning" onclick="ResetForm();">
+                <i class="fas fa-redo-alt"></i>
+                Pulisci
+            </button>
+        </div>
+    </div>
+}
+
+<script>
+    function ResetForm() {
+        document.getElementsByTagName('form')[0].reset();
+    }
+</script>
+
+

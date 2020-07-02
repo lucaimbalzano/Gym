@@ -1,0 +1,86 @@
+﻿@model Gym.Web.Models.Customer.ReservationModel
+@{ 
+    var reservationTypes = new List<SelectListItem>()
+    {
+        new SelectListItem(){ Text = "Sala Pesi", Value = "SP"},
+        new SelectListItem() {Text = "Personal Trainer", Value = "PT" },
+        new SelectListItem() {Text = "Corsi", Value = "C" },
+    };
+}
+
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="modalTitle" class="modal-title">
+                    Attività del @Model.StartDate.ToString("dddd dd MMMM") - @Model.StartDate.ToString("HH:mm")
+                </h4>
+            </div>
+            <div id="modalBody" class="modal-body">
+                @using (Html.BeginForm("InsertActivity", "Customer", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.HiddenFor(m => m.StartDate)
+                    <div class="form-group">
+                        <div class="col-sm-4 control-label">
+                            @Html.LabelFor(m => m.Duration)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.TextBoxFor(m => m.Duration, new { @class = "form-control", type = "number", min = 1, max = 3, step = 0.5})
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 control-label">
+                            @Html.LabelFor(m => m.ReservationType)
+                        </div>
+                        <div class="col-sm-8">
+                            @Html.DropDownListFor(m => m.ReservationType, reservationTypes, new { @class = "form-control", onchange = "ReservationType_Change();" })
+                        </div>
+                    </div>
+                    
+                    <div class="form-group pt" @(Model.ReservationType != "PT" ? "style=display:none" : "")>
+                        <div class="col-sm-4 control-label">
+                            @Html.LabelFor(m => m.PersonalTrainer)
+                        </div>
+                        <div class="col-sm-8">
+
+                        </div>
+                    </div>
+                    
+
+
+                    <div class="form-group c" @(Model.ReservationType != "C" ? "style=display:none" : "")>
+                        <div class="col-sm-4 control-label">
+                            @Html.LabelFor(m => m.Course)
+                        </div>
+                        <div class="col-sm-8">
+
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">OK</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                }
+
+            </div>
+            
+        </div>
+    </div>
+
+<script>
+    function ReservationType_Change() {
+        var rt = $('#ReservationType').val();
+        if (rt == 'PT') {
+            $('.form-group.pt').show();
+            $('.form-group.c').hide();
+        } else if (rt == 'C') {
+            $('.form-group.c').show();
+            $('.form-group.pt').hide();
+        } else if (rt == 'SP') {
+            $('.form-group.pt,.form-group.c').hide();
+        }
+    }
+</script>

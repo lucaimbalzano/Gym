@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Gestione Sala Pesi";
+}
+
+<h2>Gestione Sala Pesi</h2>
+
+<div id="calendar"></div>
+
+<script>
+    //document.addEventListener('DOMContentLoaded', function () {
+    //   document.getElementById ....
+    //});
+
+    $(document).ready(function () {
+        var calendard = document.getElementById('calendar');
+        var cal = new FullCalendar.Calendar(calendard, {
+            plugins: ['timeGrid', 'interaction'],
+            defaultView: 'timeGridWeek',
+            locale: 'it',
+            minTime: '08:00:00',
+            maxTime: '22:00:00',
+            slotLabelInterval: '01:00:00',
+            eventSources: [
+                {
+                    url: '@Url.Action("WeightRoomReservations")',
+                    color: 'blue',
+                    method: 'POST'
+                }
+            ]
+        });
+        cal.render();
+    });
+</script>

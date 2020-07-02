@@ -1,0 +1,15 @@
+﻿@model Gym.Web.Models.Account.UserInfoModel
+
+@if (Model.IsAuthenticated)
+{
+    <li><a>@Model.Name</a></li>
+    <li>@Html.ActionLink("Logout", "Logout", "Account")</li>
+    if (Model.IsAdmin)
+    {
+        <li>@Html.ActionLink("Admin", "", "Admin")</li>
+    }
+}
+else
+{
+    <li>@Html.ActionLink("Login", "Login", "Account")</li>
+}

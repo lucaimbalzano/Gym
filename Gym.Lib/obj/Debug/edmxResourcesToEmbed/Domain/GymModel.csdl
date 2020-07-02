@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="gymModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SNum" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Zip" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Customer" Relationship="gymModel.FK_Customer_Address" FromRole="Address" ToRole="Customer" />
+  </EntityType>
+  <EntityContainer Name="gymEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Address" EntityType="Self.Address" />
+    <EntitySet Name="Role" EntityType="gymModel.Role" />
+    <EntitySet Name="User" EntityType="gymModel.User" />
+    <AssociationSet Name="FK_User_Role" Association="gymModel.FK_User_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="Customer" EntityType="gymModel.Customer" />
+    <AssociationSet Name="FK_Customer_Address" Association="gymModel.FK_Customer_Address">
+      <End Role="Address" EntitySet="Address" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Customer_User" Association="gymModel.FK_Customer_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="Customer" EntitySet="Customer" />
+    </AssociationSet>
+    <EntitySet Name="CustomerSubscription" EntityType="gymModel.CustomerSubscription" />
+    <EntitySet Name="Subscription" EntityType="gymModel.Subscription" />
+    <AssociationSet Name="FK_CustomerSubscription_Customer" Association="gymModel.FK_CustomerSubscription_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="CustomerSubscription" EntitySet="CustomerSubscription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CustomerSubscription_Subscription" Association="gymModel.FK_CustomerSubscription_Subscription">
+      <End Role="Subscription" EntitySet="Subscription" />
+      <End Role="CustomerSubscription" EntitySet="CustomerSubscription" />
+    </AssociationSet>
+    <EntitySet Name="Reservation" EntityType="gymModel.Reservation" />
+    <EntitySet Name="ReservationType" EntityType="gymModel.ReservationType" />
+    <AssociationSet Name="FK_Reservation_Customer" Association="gymModel.FK_Reservation_Customer">
+      <End Role="Customer" EntitySet="Customer" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Reservation_ReservationType" Association="gymModel.FK_Reservation_ReservationType">
+      <End Role="ReservationType" EntitySet="ReservationType" />
+      <End Role="Reservation" EntitySet="Reservation" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="gymModel.FK_User_Role" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="PasswordEncrypted" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Role" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Role1" Relationship="gymModel.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Customer" Relationship="gymModel.FK_Customer_User" FromRole="User" ToRole="Customer" />
+  </EntityType>
+  <Association Name="FK_User_Role">
+    <End Type="gymModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="gymModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Role" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="Code" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Surname" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="AddressId" Type="Int32" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MedCertDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Address" Relationship="gymModel.FK_Customer_Address" FromRole="Customer" ToRole="Address" />
+    <NavigationProperty Name="User" Relationship="gymModel.FK_Customer_User" FromRole="Customer" ToRole="User" />
+    <NavigationProperty Name="CustomerSubscription" Relationship="gymModel.FK_CustomerSubscription_Customer" FromRole="Customer" ToRole="CustomerSubscription" />
+    <Property Name="BirthDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Reservation" Relationship="gymModel.FK_Reservation_Customer" FromRole="Customer" ToRole="Reservation" />
+  </EntityType>
+  <Association Name="FK_Customer_Address">
+    <End Type="gymModel.Address" Role="Address" Multiplicity="1" />
+    <End Type="gymModel.Customer" Role="Customer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Address">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="AddressId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Customer_User">
+    <End Type="gymModel.User" Role="User" Multiplicity="1" />
+    <End Type="gymModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Customer">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="CustomerSubscription">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+      <PropertyRef Name="StartDate" />
+    </Key>
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="Subscription" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <NavigationProperty Name="Customer" Relationship="gymModel.FK_CustomerSubscription_Customer" FromRole="CustomerSubscription" ToRole="Customer" />
+    <NavigationProperty Name="Subscription1" Relationship="gymModel.FK_CustomerSubscription_Subscription" FromRole="CustomerSubscription" ToRole="Subscription" />
+  </EntityType>
+  <EntityType Name="Subscription">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Nullable="false" Precision="18" Scale="4" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="Note" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CustomerSubscription" Relationship="gymModel.FK_CustomerSubscription_Subscription" FromRole="Subscription" ToRole="CustomerSubscription" />
+  </EntityType>
+  <Association Name="FK_CustomerSubscription_Customer">
+    <End Type="gymModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="gymModel.CustomerSubscription" Role="CustomerSubscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="CustomerSubscription">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CustomerSubscription_Subscription">
+    <End Type="gymModel.Subscription" Role="Subscription" Multiplicity="1" />
+    <End Type="gymModel.CustomerSubscription" Role="CustomerSubscription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subscription">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="CustomerSubscription">
+        <PropertyRef Name="Subscription" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Reservation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="ReservationType" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Customer" Relationship="gymModel.FK_Reservation_Customer" FromRole="Reservation" ToRole="Customer" />
+    <NavigationProperty Name="ReservationType1" Relationship="gymModel.FK_Reservation_ReservationType" FromRole="Reservation" ToRole="ReservationType" />
+  </EntityType>
+  <EntityType Name="ReservationType">
+    <Key>
+      <PropertyRef Name="Name" />
+    </Key>
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Reservation" Relationship="gymModel.FK_Reservation_ReservationType" FromRole="ReservationType" ToRole="Reservation" />
+  </EntityType>
+  <Association Name="FK_Reservation_Customer">
+    <End Type="gymModel.Customer" Role="Customer" Multiplicity="1" />
+    <End Type="gymModel.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Reservation_ReservationType">
+    <End Type="gymModel.ReservationType" Role="ReservationType" Multiplicity="1" />
+    <End Type="gymModel.Reservation" Role="Reservation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ReservationType">
+        <PropertyRef Name="Name" />
+      </Principal>
+      <Dependent Role="Reservation">
+        <PropertyRef Name="ReservationType" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

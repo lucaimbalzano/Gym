@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gym.Web", "Gym.Web\Gym.Web.csproj", "{666DCAC6-02D2-4624-A177-5EA66A5CD3DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gym.Lib", "Gym.Lib\Gym.Lib.csproj", "{7E9ECA46-76F6-4E71-B253-2FB5C0E549A4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{666DCAC6-02D2-4624-A177-5EA66A5CD3DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{666DCAC6-02D2-4624-A177-5EA66A5CD3DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{666DCAC6-02D2-4624-A177-5EA66A5CD3DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{666DCAC6-02D2-4624-A177-5EA66A5CD3DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E9ECA46-76F6-4E71-B253-2FB5C0E549A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E9ECA46-76F6-4E71-B253-2FB5C0E549A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E9ECA46-76F6-4E71-B253-2FB5C0E549A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E9ECA46-76F6-4E71-B253-2FB5C0E549A4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1233B91-F320-450F-BB9B-D39013F50876}
+	EndGlobalSection
+EndGlobal

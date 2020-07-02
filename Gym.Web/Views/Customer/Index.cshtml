@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Bentornato";
+}
+
+<h2>Bentornato</h2>
+
+<div id="calendar"></div>
+
+<div id="calendarModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span> <span class="sr-only">close</span></button>
+                <h4 id="modalTitle" class="modal-title"></h4>
+            </div>
+            <div id="modalBody" class="modal-body"> </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //document.addEventListener('DOMContentLoaded', function () {
+    //   document.getElementById ....
+    //});
+    var cal;
+    $(document).ready(function () {
+        var calendard = document.getElementById('calendar');
+        cal = new FullCalendar.Calendar(calendard, {
+            plugins: ['timeGrid', 'interaction'],
+            defaultView: 'timeGridWeek',
+            locale: 'it',
+            dateCliczk: function (info) {
+                var date = info.date;
+                $.ajax({
+                    url: '@Url.Action("ReservationPopup")',
+                    dataType: 'html',
+                    type: 'POST',
+                    data: {
+                        startDate: date.toISOString()
+                    },
+                    success: function (data) {
+                        var modal = $('#calendarModal');
+                        modal.html(data);
+                        modal.modal();
+                    }
+                })
+            },
+            eventRender: function (info) {
+                var id = info.event.id;
+                var btn = $('<a class="btn" style="float:right" onclick="DeleteActivity(' + id + ');">x</a>');
+                $(info.el).find('.fc-content .fc-title').append(btn);
+            },
+            minTime: '08:00:00',
+            maxTime: '22:00:00',
+            slotLabelInterval: '01:00:00',
+            eventSources: [
+                {
+                    url: '@Url.Action("CustomerReservations_SP")',
+                    color: 'blue',
+                    method: 'POST'
+                },
+                {
+                    url: '@Url.Action("CustomerReservations_PT")',
+                    color: 'green',
+                    method: 'POST'
+                },
+                {
+                    url: '@Url.Action("CustomerReservations_C")',
+                    color: 'red',
+                    method: 'POST'
+                }
+            ]
+        });
+        cal.render();
+    });
+
+    function DeleteActivity(id) {
+        console.log("Deleting Activity...." + id);
+        $.ajax({
+            url: '@Url.Action("DeleteActivity")',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                reservationId: id
+            },
+            success: function(data) {
+                if (data.Success) {
+                    cal.refetchEvents();
+                } else {
+                    alert(data.Message);
+                }
+            }
+        })
+    }
+</script>

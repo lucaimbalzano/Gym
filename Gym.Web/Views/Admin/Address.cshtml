@@ -1,0 +1,52 @@
+﻿@model Gym.Web.Models.Admin.AddressModel
+
+<div class="form-group">
+    <div class="col-sm-4 control-label">
+        @Html.LabelFor(m => m.Street)
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBox("Address.Street",Model.Street, new { @class = "form-control"})
+        @Html.ValidationMessageFor(m => m.Street)
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-4 control-label">
+        @Html.LabelFor(m => m.StreetNumber)
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBox("Address.StreetNumber", Model.StreetNumber, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.StreetNumber)
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-4 control-label">
+        @Html.LabelFor(m => m.City)
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBox("Address.City", Model.City, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.City)
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-4 control-label">
+        @Html.LabelFor(m => m.Zip)
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBox("Address.Zip", Model.Zip, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Zip)
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-4 control-label">
+        @Html.LabelFor(m => m.Country)
+    </div>
+    <div class="col-sm-8">
+        @Html.TextBox("Address.Country", Model.Country, new { @class = "form-control" })
+        @Html.ValidationMessageFor(m => m.Country)
+    </div>
+</div>
+

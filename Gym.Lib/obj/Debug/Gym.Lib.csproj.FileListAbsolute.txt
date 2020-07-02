@@ -1,0 +1,55 @@
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll.config
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\Gym.Lib.pdb
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.dll
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.xml
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\david\source\repos\Gym\Gym.Lib\bin\Debug\it\EntityFramework.SqlServer.resources.dll
+C:\Users\david\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CoreCompileInputs.cache
+C:\Users\david\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CopyComplete
+C:\Users\david\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.dll
+C:\Users\david\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.pdb
+C:\Users\david\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.csprojAssemblyReference.cache
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll.config
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\Gym.Lib.pdb
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.dll
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.dll
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.xml
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.xml
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\it\EntityFramework.resources.dll
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\it\EntityFramework.SqlServer.resources.dll
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.csprojAssemblyReference.cache
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CoreCompileInputs.cache
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CopyComplete
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.dll
+D:\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.pdb
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll.config
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\Gym.Lib.pdb
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.dll
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.xml
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\bin\Debug\it\EntityFramework.SqlServer.resources.dll
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CoreCompileInputs.cache
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CopyComplete
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.dll
+C:\Users\david\Google Drive\Lavorpiu2020\NET\Gym\Gym.Lib\obj\Debug\Gym.Lib.pdb
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll.config
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\Gym.Lib.dll
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\Gym.Lib.pdb
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.dll
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.xml
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\it\EntityFramework.resources.dll
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\bin\Debug\it\EntityFramework.SqlServer.resources.dll
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.csprojAssemblyReference.cache
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.csproj.CopyComplete
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.dll
+C:\Users\Lucas\source\repos\Gym\Gym.Lib\obj\Debug\Gym.Lib.pdb
