@@ -1,27 +1,21 @@
-# BootstrapUi
+# Gym 
+**Gym Covid-19**  
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.11.
 
-## Development server
+   <img alt="html5" src="https://img.shields.io/badge/-HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" /> <img alt="Css3" src="https://img.shields.io/badge/-CSS3-00FF00?style=flat-square&logo=css3&logoColor=brown" />
+  <img alt="Javascript" src="https://img.shields.io/badge/-Javascript-ADD8E6?style=flat-square&logo=javascript&logoColor=black" />
+  <img alt="C#" src="https://img.shields.io/badge/-csharp-blue?style=flat-square&logo=csharp&logoColor=white" />
+  <img alt=".NET" src="https://img.shields.io/badge/-.NET-ADD8E5?style=flat-square&logo=.net&logoColor=black" />
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Description 📌
+I  create this web app for the COVID-19 situation where the people must to book a room in gym, for example for Zumba course or Dumbell room.
+I used this lybrary as calendar `https://fullcalendar.io/`
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Database 📌
+![image](https://user-images.githubusercontent.com/45575898/132344425-d0cfcdee-a8bf-46cc-9487-3258e911ba4a.png)
 
-## Build
+> Product made in Italy ©
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Made with ❤ by ![](https://img.shields.io/badge/luca-informational?style=flat&logo=#DD0031&logoColor=white&color=2bbc8a)![](https://img.shields.io/badge/Imbalzano-informational?style=flat&logo=&logoColor=white&color=2bbc8a)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
