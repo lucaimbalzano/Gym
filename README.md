@@ -7,6 +7,12 @@
   <img alt="C#" src="https://img.shields.io/badge/-csharp-blue?style=flat-square&logo=csharp&logoColor=white" />
   <img alt=".NET" src="https://img.shields.io/badge/-.NET-ADD8E5?style=flat-square&logo=.net&logoColor=black" />
 
+## Preview 📌
+![GymCo01](https://user-images.githubusercontent.com/45575898/132345695-3aec905e-4716-4577-97bc-69d296aee91b.PNG)
+![GymCo02](https://user-images.githubusercontent.com/45575898/132345707-1952a128-7788-4814-b14c-9ace6c74583b.PNG)
+![GymCo03](https://user-images.githubusercontent.com/45575898/132345720-8a5ea899-2ab3-4e1e-9b72-bfe48cf92af8.PNG)
+
+
 ## Description 📌
 I  create this web app for the COVID-19 situation where the people must to book a room in gym, for example for Zumba course or Dumbell room.
 I used this lybrary as calendar `https://fullcalendar.io/`
