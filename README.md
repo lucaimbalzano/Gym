@@ -14,8 +14,8 @@
 
 
 ## Description 📌
-I  create this web app for the COVID-19 situation where the people must to book a room in gym, for example for Zumba course or Dumbell room.
-I used this lybrary as calendar `https://fullcalendar.io/`
+I  create this web app for the COVID-19 situation where the people must to book for a range of time( for example for Zumba course or Dumbell room).
+I used this library as calendar `https://fullcalendar.io/`
 
 
 ## Database 📌
